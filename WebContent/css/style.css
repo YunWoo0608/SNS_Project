@@ -1,0 +1,546 @@
+/* ==== Google font ==== */
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,700,900);
+@import url('http://fonts.googleapis.com/css?family=Ek+Mukta:400,600,700');
+*{
+	padding:0;
+	margin:0;
+}
+
+
+body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Ek Mukta', sans-serif;
+	font-weight: 300;
+    color: #666;
+    background-color: #fff;
+	font-size: 16px;
+    line-height: 1.6em;
+	font-weight: 400;
+	overflow-x: hidden;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+h1 {
+	font-size: 38px;
+}
+h2 {
+	font-size: 36px;
+}
+h3 {
+	font-size: 32px;
+}
+h4 {
+	font-size: 28px;
+}
+h5 {
+	font-size: 24px;
+}
+h6 {
+	font-size: 20px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 30px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+	color: #111;
+}
+
+h1.h-xlight,h2.h-xlight,h3.h-xlight ,h4.h-xlight ,h5.h-xlight ,h6.h-xlight  {
+	font-weight: 200;
+}
+
+h1.h-light,h2.h-light,h3.h-light ,h4.h-light ,h5.h-light ,h6.h-light  {
+	font-weight: 300;
+}
+
+h1.h-bold,h2.h-bold,h3.h-bold ,h4.h-bold ,h5.h-bold ,h6.h-bold  {
+	font-weight: 600;
+}
+
+h1.font-light,h2.font-light,h3.font-light,h4.font-light,h5.font-light,h6.font-light {
+	color: #fff;
+}
+
+.big-heading {
+	font-size: 48px;
+	font-weight: 700;
+}
+
+p {
+    margin: 0 0 20px;
+
+}
+
+p.lead {
+	font-weight: 600;
+}
+
+.highlight-light {
+	background-color: rgba(255,255,255,.5);
+	padding: 20px;
+	display: inline-block;
+	color: #111;
+}
+
+.highlight-dark {
+	background-color: rgba(0,0,0,.5);
+	padding: 20px;
+	display: inline-block;
+	color: #fff;
+}
+
+.highlight-color {
+	padding: 20px;
+	display: inline-block;
+}
+
+a {
+    color: #666;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+a:hover,
+a:focus {
+    text-decoration: none;
+}
+
+
+.light {
+    font-weight: 400;
+}
+
+.divider-header {
+	display: block;
+	width: 40px;
+	height: 2px;
+	margin: 0 auto;
+	margin-bottom: 10px;
+}
+
+
+
+/* margins */
+.marginbot-0{margin-bottom:0 !important;}
+.marginbot-10{margin-bottom:10px !important;}
+.marginbot-20{margin-bottom:20px !important;}
+.marginbot-30{margin-bottom:30px !important;}
+.marginbot-40{margin-bottom:40px !important;}
+.marginbot-50{margin-bottom:50px !important;}
+.marginbot-60{margin-bottom:60px !important;}
+.marginbot-70{margin-bottom:70px !important;}
+.marginbot-80{margin-bottom:80px !important;}
+.marginbot-90{margin-bottom:90px !important;}
+.marginbot-100{margin-bottom:100px !important;}
+
+.margintop-0{margin-top:0 !important;}
+.margintop-10{margin-top:10px !important;}
+.margintop-20{margin-top:20px !important;}
+.margintop-30{margin-top:30px !important;}
+.margintop-40{margin-top:40px !important;}
+.margintop-45{margin-top:45px !important;}
+.margintop-50{margin-top:50px !important;}
+
+/* ===========================
+--- General sections
+============================ */
+
+.home-section {
+    padding-top: 150px;
+    padding-bottom: 110px;
+		display:block;
+    position:relative;
+    z-index:120;
+}
+
+.inner-section {
+    padding-top: 110px;
+    padding-bottom: 110px;
+}
+
+
+.home-section.nopadd-bot {
+    padding-bottom: 0;
+}
+
+
+.section-heading h2 {
+	font-size: 24px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+
+.section-heading p {
+	font-weight: 300;
+	font-size: 20px;
+	line-height: 1.6em;
+}
+
+.color-dark .section-heading h2 {
+	color: #111;
+}
+.color-dark .section-heading p {
+	color: #444;
+}
+
+.color-dark .divider-short {
+	background: #666;
+}
+.color-dark .divider-header {
+	background: #666;
+}
+
+
+
+/* --- section bg var --- */
+
+.bg-white {
+	background: #fff;
+}
+
+.bg-gray {
+	background: #f9f9f9;
+}
+
+
+.bg-dark {
+	background: #404040;
+}
+
+
+
+/* ===========================
+--- Intro
+============================ */
+.hero { padding: 200px 0 200px 0; height: 100%; }
+.hero h1 { font-size: 40px; letter-spacing: 12px; margin: 40px 0 10px; font-weight: 900; color: #fff;}
+.hero h1 span { color: #a1a9b0; display: inline-block; }
+.hero p { font-size: 24px; font-weight: 400; color: #fefefe; }
+.log-btn { background: rgba(61, 201, 179, 1); padding: 20px 40px; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; -o-border-radius: 5px; color: #fff; text-transform: uppercase; letter-spacing: 1px; display: inline-block; -webkit-box-shadow: 0px 3px 0px 0px #309383; -moz-box-shadow: 0px 3px 0px 0px #309383; box-shadow: 0px 3px 0px 0px #309383; margin: 60px 30px 0; font-weight: bold; }
+.log-btn:hover, .log-btn:focus { background: rgba(61, 201, 179, 0.6); color: #fff; }
+.sign-btn { background: rgba(61, 201, 179, 1); padding: 20px 40px; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; -o-border-radius: 5px; color: #404040; text-transform: uppercase; letter-spacing: 1px; display: inline-block; -webkit-box-shadow: 0px 3px 0px 0px #309383; -moz-box-shadow: 0px 3px 0px 0px #309383; box-shadow: 0px 3px 0px 0px #309383; margin: 60px 30px 0; font-weight: bold; }
+.sign-btn:hover, .sign-btn:focus { background: rgba(61, 201, 179, 0.6); color: #fff; }
+
+
+#bg-video {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: auto;
+	height: auto;
+	min-width: 100%;
+	min-height: 100%;
+	z-index: -100;
+	background: url(flame.jpg) left top no-repeat;
+	background-size: cover;
+}
+
+
+.intro {
+	width:100%;
+	position:relative;
+	padding:0;
+}
+
+.intro-inner {
+	width:100%;
+	position:relative;
+	padding:120px 0 20px;
+}
+
+.intro-text {
+    font-size: 18px;
+}
+
+
+/* ===========================
+--- board
+============================ */
+
+.board-section {
+	padding-top: 50px;
+	padding-bottom: 110px;
+	display:block;
+	position:relative;
+	z-index:120;
+}
+.board-box {
+	background: #fff;
+	border-bottom: 2px solid #f7f7f7;
+	padding: 20px 15px 40px;
+}
+
+.article-content {
+	color:#666;
+	width: 100%;
+
+}
+
+/* 간략하게 3줄만 보여주기 */
+.brief-article-content p {
+	color:#666;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: box;
+	margin-top:1px;
+	max-height:80px;
+	overflow:hidden;
+	vertical-align:top;
+	text-overflow: ellipsis;
+	word-break: normal;
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp:3
+
+}
+
+
+.friend h5 {
+	text-transform: uppercase;
+	font-weight: 700;
+	color: #666;
+	font-size: 15px;
+	margin-bottom: 10px;
+}
+
+.brief-article h6 {
+	text-transform: uppercase;
+	font-weight: 700;
+	color: #666;
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+
+.brief-article, .divider-header {
+	margin-bottom: 30px;
+}
+
+.add-btn {
+	margin-left: 10%;
+}
+
+#mb-add {
+	margin-left: 77%;
+	z-index: 1000;
+	position: fixed;
+}
+
+/* ===========================
+--- Post
+============================ */
+
+.original-article h6 {
+	text-transform: uppercase;
+	font-weight: 700;
+	color: #666;
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+
+.brief-article, .divider-header {
+	margin-bottom: 30px;
+}
+
+.article-content {
+	color:#666;
+	width: 100%;
+}
+
+/* 댓글, 대댓글 작성자 ID */
+.cmt-wrt-ID p {
+	text-align: center;
+	font-weight: bold;
+}
+
+.reply-btn {
+	color: #3dc9b3;
+}
+
+.cmt-btn {
+	float: right;
+}
+
+/* ===========================
+--- Login & Signup form
+============================ */
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.btn-lg,
+.btn-group-lg > .btn {
+  border-radius: 2px;
+}
+
+/* ===========================
+--- Comment
+============================ */
+
+.cmt-textarea {
+	width: 85%;
+}
+
+#checkbox { /* 체크박스 보이지 않게 */
+	display: none;
+}
+
+#checkbox + .reply_write { /* 체크박스 보이지 않게 */
+	display: block;
+}
+
+#checkbox:checked + .reply_write { /* 체크박스 보이지 않게 */
+	display: none;
+}
+
+/* ===========================
+--- Edit
+============================ */
+
+#subject {
+	padding: 0;
+	margin: 0;
+}
+.edit-sbj-textarea {
+	padding: 1% 1%;
+}
+.edit-textarea {
+	margin-left: 7%;
+	width: 85%;
+}
+
+/* ===========================
+--- Footer
+============================ */
+
+footer {
+    background-color: #404040;
+}
+
+footer {
+	text-align: center;
+	padding: 20px 0 20px ;
+
+}
+
+footer p {
+	color: #f8f8f8;
+	font-size: 14px;
+}
+
+
+
+
+
+/* menu */
+ul.footer-menu {
+	list-style: none;
+}
+
+/* --- button --- */
+.btn {
+	border-radius: 2px;
+	position: relative;
+	display: inline-block;
+	outline: none;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 400;
+	text-shadow: 0 0 1px rgba(255,255,255,0.3);
+	font-size: 14px;
+}
+
+a.btn:focus{
+	outline: 0;
+}
+
+.btn-skin:hover,
+.btn-skin:focus,
+.btn-skin:active,
+.btn-skin.active {
+  color: #fff;
+  background-color: #666;
+  border-color: #666;
+}
+
+
+
+
+/* Media queries */
+
+@media(min-width:767px) {
+    .intro {
+        height: 100%;
+        padding: 0;
+    }
+
+    .brand-heading {
+        font-size: 100px;
+    }
+
+
+    .intro-text {
+        font-size: 25px;
+    }
+
+		.cmt-btn {
+			float: right;
+			margin-right: 5%;
+			margin-top: 1%;
+		}
+
+		.add-btn {
+			margin-left: 25%;
+		}
+
+		#mb-add {
+			display: none;
+		}
+
+}
+@media (max-width:768px) {
+
+	.board-box {
+		margin-bottom: 50px;
+	}
+
+	.team-wrap {
+		margin-bottom: 30px;
+	}
+
+	form#contact-form {
+		margin-bottom: 50px;
+	}
+
+	.xs-marginbot-20 {
+		margin-bottom: 20px;
+	}
+
+	.cmt-btn {
+		float: right;
+		margin-top: 2%;
+	}
+
+	.add-btn {
+		margin-left: 10%;
+	}
+
+ #friend-section, #add-section, #section1, #section2
+ {
+	 display: none;
+ }
+}

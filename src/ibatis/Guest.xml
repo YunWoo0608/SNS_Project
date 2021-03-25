@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- DOCTYPE이 sqlMap은 처리할 SQL 명령을 기억하는 xml 파일이다. -->
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap namespace="Guest">
+	<!-- id : SQL 명령을 식별한다. -->
+	<!-- parameterClass : SQL 명령으로 전달되는 데이터의 타입을 적는다. -->
+	<!-- resultClass : SQL 명령문에의해 출력되는 데이터의 타입을 적는다. -->
+	<!-- #~# 값이 들어 갈 자리 -->
+	<!-- <select id="getGuest" parameterClass="m" resultClass="my.ibatis.Person">
+	</select>  -->
+	<insert id="insertMember" parameterClass="VO.MemberVO">
+		insert into member(memberId, memberName,memberPw,memberEmail) values 
+			(#sMID#, #sName#, #sPW#, #sEmail#)
+	</insert>
+	
+	<select id="selectMember" parameterClass="String" resultClass="VO.MemberVO">
+		SELECT memberId as sMID,memberName as sName,memberPw as sPW,memberEmail as sEmail 
+		FROM member WHERE memberId=#sID#;
+	</select>	
+	
+	<select id="selectPage_ID" parameterClass="String" 
+													resultClass="VO.PageVO">
+		SELECT pageNo as nNO, pageTitle as sTitle, pageContent as sContent, r_memberId as sMID, pageReg as sDate
+		FROM PAGE WHERE r_memberId=#nID# Order by pageNo desc;
+	</select>
+		<select id="selectMember_ID_PW" parameterClass="java.util.HashMap" 
+													resultClass="VO.MemberVO">
+		SELECT  memberId as sMID,memberName as sName,memberPw as sPW,memberEmail as sEmail 
+		FROM member WHERE memberId=#nID# AND memberPw=#nPW#;
+	</select>
+	<select id="selectMember_ID" parameterClass="String" 
+													resultClass="VO.MemberVO">
+		SELECT  memberId as sMID,memberName as sName,memberPw as sPW,memberEmail as sEmail 
+		FROM member WHERE memberId=#nID#;
+	</select>
+	<!-- 테이블에 저장된 글 중에서 화면에 표시할 한 페이지 분량을 얻어오는 SQL -->
+<!-- <![CDATA[ ~ ]]> 사이에 입력되는 내용은 무조건 문자열로 취급된다. -->
+<select id="selectPage_INT_INT" parameterClass="java.util.HashMap" 
+												resultClass="VO.PageVO">
+	<![CDATA[
+	select pageNo as nNO, pageTitle as sTitle, pageContent as sContent, r_memberId as sMID, pageReg as sDate from (
+		select rownum rnum, G.* from ( 
+			select pageNo as nNO, pageTitle as sTitle, pageContent as sContent, r_memberId as sMID, pageReg as sDate from page order by idx desc
+		) G where rownum <= #endNo#
+	) where rnum >= #startNo#
+	]]>
+</select>
+<!-- 리플 얻어오기 -->
+	<select id="selectReply" parameterClass="int" 
+												resultClass="VO.ReplyVO">
+		SELECT replyNo as nReplyNO, 
+		r_pageNo as nPageNO,
+		reorder as nReorder,
+		depth as nDepth,
+		replyContent as sReplyContent,
+		r_memberId as sMemberId,
+		replyReg as sDate,
+		pre_replyNo as nPre_ReplyNO
+		FROM reply WHERE r_pageNo=#No#; 
+	</select>	
+	
+	<!-- 리플 이름 얻어오기 -->
+		<select id="getReplyName" parameterClass="String" 
+												resultClass="String">
+		SELECT DISTINCT m.memberName
+		FROM member AS m , reply AS r 
+		WHERE m.memberId = r.r_memberId AND r.r_memberId=#ID#;
+	</select>	
+	<delete id="deletePage" parameterClass="int">
+		DELETE FROM page WHERE pageNo=#page#
+	</delete>
+	<update id="modifyPage" parameterClass="VO.PageVO">
+		UPDATE PAGE SET pageContent = #sContent#, pageTitle = #sTitle# WHERE pageNo=#nNo#;
+	</update>
+	
+	<!-- 댓글 쓰기 -->
+	<insert id="writeReply" parameterClass="VO.ReplyVO">
+		INSERT INTO reply(r_pageNo,replyContent,r_memberId,pre_replyNo) VALUES(#nPageNO#,#sReplyContent#,#sMemberId#,#nPre_ReplyNO#);
+	</insert>
+	<!-- 댓글 쓰기 -->
+	<insert id="writeReply_r" parameterClass="VO.ReplyVO">
+		INSERT INTO reply(r_pageNo,reorder,depth,replyContent,r_memberId,pre_replyNo) VALUES(#nPageNO#,#nReorder#,#nDepth#,#sReplyContent#,#sMemberId#,#nPre_ReplyNO#);
+	</insert>
+	<!-- 페이지 쓰기 -->
+	<insert id="writePage" parameterClass="VO.PageVO">
+		INSERT INTO page(pageTitle,pageContent,r_memberId) VALUES(#sTitle#,#sContent#,#sGID#);
+	</insert>
+	<!-- 댓글 깊이 수정 -->
+	<update id="modifyDepth" parameterClass="java.util.HashMap">
+		UPDATE reply SET depth=#nDepth# WHERE replyNo=#nReplyNO#;
+	</update>
+	<!-- 댓글 깊이 얻어오기 -->
+		<select id="selectReplyDepth" parameterClass="int" 
+												resultClass="int">
+		SELECT depth FROM reply 
+		WHERE replyNo=#no#;
+	</select>	
+	<!-- 댓글의 부모 댓글번호 얻어오기 -->
+	<select id="selectReply_PreNO" parameterClass="int" 
+												resultClass="int">
+		SELECT pre_replyNo FROM reply 
+		WHERE replyNo=#preReplyNO#;
+	</select>	
+	<!-- 댓글의 부모 댓글번호  변경하기 -->
+	<update id="modifyPreReplyNO" parameterClass="java.util.HashMap" >
+		UPDATE reply SET pre_replyNo=#preReplyNO# WHERE replyNo=#rePlyNO#;
+	</update>	
+</sqlMap>
